@@ -77,6 +77,8 @@ function init() {
                 }
                 else {
                     console.log('Wrong guess!')
+                    player.numberOfGuesses -= 1
+                    console.log("Number of Guesses left" + player.numberOfGuesses)
                 }
 
             } 
@@ -84,6 +86,17 @@ function init() {
 
                 player.guessedLetters = inputText.value.toLowerCase()
                 inputText.value = ''
+                console.log("guessedletters " + player.guessedLetters)
+                
+                if (cpu.randomWord.includes(player.guessedLetters) === true) {
+                    console.log('You guessed a complete word!')
+                    console.log(player.guessedLetters)
+                }
+                else {
+                    console.log('Wrong guess!')
+                    player.numberOfGuesses -= 1
+                    console.log("Number of Guesses left" + player.numberOfGuesses)
+                }
 
             }
             
