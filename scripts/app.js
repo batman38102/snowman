@@ -3,17 +3,17 @@ function init() {
     // Choose Category based on button clicked
 
     function chooseCategory(event) {
-        if (event.currentTarget.id === "fruits") {
+        if (event.currentTarget.id === 'fruits') {
 
             player.chosenCategory = categories.fruits
-            categoryText.textContent = "Fruits"
+            categoryText.textContent = 'Fruits'
             console.log(player.chosenCategory)
             console.log(generateWord())
         }
-        else if (event.currentTarget.id === "vegetables") {
+        else if (event.currentTarget.id === 'vegetables') {
 
             player.chosenCategory = categories.vegetables
-            categoryText.textContent = "Vegetables"
+            categoryText.textContent = 'Vegetables'
             console.log(player.chosenCategory)
             console.log(generateWord())
             
@@ -52,24 +52,41 @@ function init() {
     // Comparing  
 
     function compare(event) {
-        if (event.currentTarget.id === "check") {
+        if (event.currentTarget.id === 'check') {
+            // console.log('clicked')
             // console.log(inputText.value)
             // player.guessedLetters = inputText.value.split('')
-            player.guessedLetters = inputText.value.toLowerCase()
+            // player.guessedLetters = inputText.value.toLowerCase()
             // inputText.value = ""
-            console.log(player.guessedLetters)
-            console.log(cpu.randomWord)
+            // console.log(player.guessedLetters)
+            // console.log(cpu.randomWord)
+            
+            // console.log(splitWord)
+
             splitWord = cpu.randomWord.split('')
-            console.log(splitWord)
+            
+            if (inputText.value.length === 1) {
 
+                playerInput = inputText.value.toLowerCase()
+                inputText.value = ''
+                
+                if (splitWord.includes(playerInput) === true) {
+                    console.log('You guessed a letter')
+                    player.guessedLetters.push(playerInput) 
+                    console.log(player.guessedLetters)
+                }
+                else {
+                    console.log('Wrong guess!')
+                }
 
+            } 
+            else {
 
-            if (inputText.value.length > 1) {
-                console.log('Test')
+                player.guessedLetters = inputText.value.toLowerCase()
+                inputText.value = ''
+
             }
-            // if (splitWord.includes(player.guessedLetters) === true) {
-            //     console.log('You guessed a letter')
-            // }
+            
             
 
             // for (let i = 0; i <= player.guessedLetters; i++) {
