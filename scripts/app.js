@@ -9,6 +9,8 @@ function init() {
             categoryText.textContent = 'Fruits'
             console.log(player.chosenCategory)
             console.log(generateWord())
+            // fruitsButton.disabled = true        // disable buttons after clicked
+            // vegetablesButton.disabled = true
         }
         else if (event.currentTarget.id === 'vegetables') {
 
@@ -16,6 +18,8 @@ function init() {
             categoryText.textContent = 'Vegetables'
             console.log(player.chosenCategory)
             console.log(generateWord())
+            // fruitsButton.disabled = true        // disable buttons after clicked
+            // vegetablesButton.disabled = true
             
         }
         
@@ -46,6 +50,15 @@ function init() {
     function generateWord() {
         randomInt = Math.floor(Math.random() * player.chosenCategory.length)
         cpu.randomWord = player.chosenCategory[randomInt]
+        splitWord = cpu.randomWord.split('')    // splits word to be guessed into letter
+
+        // add dashes according to length of word
+        
+        for (let i = 0; i < splitWord.length; i++) {
+
+            displayDashes.textContent = '- '.repeat(splitWord.length)
+
+        }
         return cpu.randomWord
     }
 
@@ -53,17 +66,8 @@ function init() {
 
     function compare(event) {
         if (event.currentTarget.id === 'check') {
-            // console.log('clicked')
-            // console.log(inputText.value)
-            // player.guessedLetters = inputText.value.split('')
-            // player.guessedLetters = inputText.value.toLowerCase()
-            // inputText.value = ""
-            // console.log(player.guessedLetters)
-            // console.log(cpu.randomWord)
-            
-            // console.log(splitWord)
 
-            splitWord = cpu.randomWord.split('')
+            // If User inputs only one letter at a time
             
             if (inputText.value.length === 1) {
 
@@ -78,15 +82,15 @@ function init() {
                 else {
                     console.log('Wrong guess!')
                     player.numberOfGuesses -= 1
-                    console.log("Number of Guesses left" + player.numberOfGuesses)
+                    console.log('Number of Guesses left' + player.numberOfGuesses)
                 }
 
-            } 
+            } // If user inputs the whole word instead
             else {
 
                 player.guessedLetters = inputText.value.toLowerCase()
                 inputText.value = ''
-                console.log("guessedletters " + player.guessedLetters)
+                console.log('Complete word: ' + player.guessedLetters)
                 
                 if (cpu.randomWord.includes(player.guessedLetters) === true) {
                     console.log('You guessed a complete word!')
@@ -95,21 +99,10 @@ function init() {
                 else {
                     console.log('Wrong guess!')
                     player.numberOfGuesses -= 1
-                    console.log("Number of Guesses left" + player.numberOfGuesses)
+                    console.log('Number of Guesses left ' + player.numberOfGuesses)
                 }
 
             }
-            
-            
-
-            // for (let i = 0; i <= player.guessedLetters; i++) {
-            //     for (let j = 0; j <= splitWord; j++) {
-                    
-            //     }
-
-            // }
-
-
         }
 
     }
@@ -121,6 +114,7 @@ function init() {
     categoryText = document.getElementById('category')
     inputText = document.getElementById('text')
     checkGuessButton = document.getElementById('check')
+    displayDashes = document.getElementById('display-dashes')
 
     // Buttons
 
@@ -133,9 +127,18 @@ function init() {
 
 
 
-
 }
 
-// console.log(init())
-
 window.addEventListener('DOMContentLoaded', init)
+
+
+
+
+
+  // Random thoughts
+ // for (let i = 0; i <= player.guessedLetters; i++) {
+            //     for (let j = 0; j <= splitWord; j++) {
+                    
+            //     }
+
+            // }
