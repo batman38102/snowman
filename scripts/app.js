@@ -52,13 +52,16 @@ function init() {
         cpu.randomWord = player.chosenCategory[randomInt]
         splitWord = cpu.randomWord.split('')    // splits word to be guessed into letter
 
-        // add dashes according to length of word
+        // add dashes according to length of word 
         
-        for (let i = 0; i < splitWord.length; i++) {
+        for (let i = 0; i < cpu.randomWord.length; i++) {
 
-            displayDashes.textContent = '- '.repeat(splitWord.length)
+            // displayDashes.textContent = '- '.repeat(splitWord.length)
+            player.guessedLetters.push('_')
+            
 
         }
+        displayDashes.textContent = player.guessedLetters.join(' ')
         return cpu.randomWord
     }
 
@@ -73,28 +76,42 @@ function init() {
 
                 playerInput = inputText.value.toLowerCase()
                 inputText.value = ''
+
+                for (let j = 0; j < cpu.randomWord.length; j++) {
+                    if (cpu.randomWord[j] === playerInput) {
+                        player.guessedLetters[j] = playerInput
+                        console.log(player.guessedLetters)
+                        displayDashes.textContent = player.guessedLetters.join(' ')
+                    } 
+                }
                 
-                if (splitWord.includes(playerInput) === true) {
-                    console.log('You guessed a letter')
-                    player.guessedLetters.push(playerInput) 
-                    console.log(player.guessedLetters)
-                }
-                else {
-                    console.log('Wrong guess!')
-                    player.numberOfGuesses -= 1
-                    console.log('Number of Guesses left' + player.numberOfGuesses)
-                }
+                // if (splitWord.includes(playerInput) === true) {
+                //     console.log('You guessed a letter')
+                //     player.guessedLetters.push(playerInput) 
+                //     console.log(player.guessedLetters)
+                // }
+                // else {
+                //     console.log('Wrong guess!')
+                //     player.numberOfGuesses -= 1
+                //     console.log('Number of Guesses left' + player.numberOfGuesses)
+                // }
 
             } // If user inputs the whole word instead
             else {
 
-                player.guessedLetters = inputText.value.toLowerCase()
+                // player.guessedLetters = inputText.value.toLowerCase()
+                // inputText.value = ''
+                // console.log('Complete word: ' + player.guessedLetters)
+
+                playerInput = inputText.value.toLowerCase()
                 inputText.value = ''
-                console.log('Complete word: ' + player.guessedLetters)
-                
-                if (cpu.randomWord.includes(player.guessedLetters) === true) {
-                    console.log('You guessed a complete word!')
-                    console.log(player.guessedLetters)
+
+                if (cpu.randomWord.includes(playerInput) === true) {
+                    player.guessedLetters = null
+                    playerGuessSplit = playerInput.split('')
+                    player.guessedLetters = playerGuessSplit
+                    displayDashes.textContent = player.guessedLetters.join(' ')
+                    
                 }
                 else {
                     console.log('Wrong guess!')
@@ -107,6 +124,14 @@ function init() {
 
     }
 
+    function declareWinner() {
+        if (splitWord.includes(player.guessedLetters)) {
+
+            checkGuessButton.disabled = true;
+
+        }
+    }
+
     // Grabbing elements
     
     fruitsButton = document.getElementById('fruits')
@@ -114,7 +139,7 @@ function init() {
     categoryText = document.getElementById('category')
     inputText = document.getElementById('text')
     checkGuessButton = document.getElementById('check')
-    displayDashes = document.getElementById('display-dashes')
+    displayDashes = document.getElementById('display-dashes') // used to display dashes or letters
 
     // Buttons
 
