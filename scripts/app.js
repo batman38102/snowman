@@ -11,6 +11,7 @@ function init() {
             console.log(generateWord())
             fruitsButton.disabled = true        // disable buttons after clicked
             vegetablesButton.disabled = true
+            checkGuessButton.disabled = false
         }
         else if (event.currentTarget.id === 'vegetables') {
 
@@ -20,6 +21,7 @@ function init() {
             console.log(generateWord())
             fruitsButton.disabled = true        // disable buttons after clicked
             vegetablesButton.disabled = true
+            checkGuessButton.disabled = false
             
         }
         
@@ -71,6 +73,7 @@ function init() {
         if (event.currentTarget.id === 'check') {
 
             // If User inputs only one letter at a time
+            // if(inputText.value = '')return;
             
             if (inputText.value.length === 1) {
 
@@ -156,7 +159,7 @@ function init() {
             cpu.randomWord = null
             fruitsButton.disabled = false       // disable buttons after clicked
             vegetablesButton.disabled = false
-            checkGuessButton.disabled = false
+            checkGuessButton.disabled = true
             displayDashes.textContent = ""
             categoryText.textContent = ""
         }
@@ -181,9 +184,9 @@ function init() {
     checkGuessButton.addEventListener('click', compare)
     resetButton.addEventListener('click', resetAll)
 
-
-
-
+    // keep button disabled at first until one of the category is chosen
+    
+    checkGuessButton.disabled = true
 
 
 }
