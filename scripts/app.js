@@ -143,13 +143,13 @@ function init() {
         }
         else if (player.numberOfGuesses === 0) {
             checkGuessButton.disabled = true
+            displayDashes.textContent = "Game Over! You lose!"
         }
     }
 
     function resetAll(event) {
         if (event.currentTarget.id === 'reset') {
             
-            console.log('clicked')
             player.chosenCategory = null
             player.numberOfGuesses = 10
             player.guessedLetters = []
@@ -158,6 +158,7 @@ function init() {
             vegetablesButton.disabled = false
             checkGuessButton.disabled = false
             displayDashes.textContent = ""
+            categoryText.textContent = ""
         }
     }
 

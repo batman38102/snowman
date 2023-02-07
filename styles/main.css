@@ -1,8 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&display=swap');
+
 body {
-    background-color: blue;
+    background: linear-gradient(#009FFD, #2A2A72);
+    background-attachment: fixed;
+    font-family: 'Mountains Of Christmas', sans-serif;
+
 }
 
 h1 {
     color: white;
     text-align: center;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+}
+
+.category {
+    display: flex;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 0;
+    padding-top: 10px;
+}
+
+.container button {
+    margin: 10px 0;
+    padding: 10px;
+    font-family: 'Mountains Of Christmas', sans-serif;
+    background-color: wheat;
+    border-style: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.category {
+    display: flex;
+    justify-content: center;
+}
+
+.text-guess {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+h3 {
+    text-align: center;
+    color: white;
+}
+
+.text-guess #text {
+    width: 100px;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    background-color: white;
+    font-family: 'Mountains Of Christmas', sans-serif;
+    text-align: center;
+    font-weight: bold;
+}
+
+.text-guess #check {
+    background-color: wheat;
+    font-family: 'Mountains Of Christmas', sans-serif;
+    background-color: wheat;
+    border: none;
+    border-style: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+#display-dashes {
+    text-align: center;
+    font-size: 50px;
+    color: white;
 }

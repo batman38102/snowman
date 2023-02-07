@@ -10,12 +10,23 @@
 </head>
 <body>
     <h1>Snowman</h1>
-    <button id="fruits">Fruits</button>
-    <button id="vegetables">Vegetables</button>
-    <p>Category chosen: <span id="category"></span></p>
+    <h2>Save the snowman by guessing correct letters!</h2>
+
+    <div class="container">
+        <p>Choose your category: </p>
+        <button id="fruits">Fruits</button>
+        <button id="vegetables">Vegetables</button>
+    </div>
+    <div class="category">
+        <p>Category chosen: <span id="category"></span></p>
+    </div>
+
+    <h3>Guess one letter at a time or try to guess the whole word at once!</h3>
+    <div class="text-guess">
     <input type="text" id="text" placeholder="Care to guess?">
-    <button id="check">Check guess?</button>
-    <p> Guess Letters: <span id="display-dashes"></span> </p>
-    <button id="reset">Reset</button>
+    <button id="check">Guess?</button>
+    </div>
+    <p id="display-dashes"> </p>
+    <p>Restart?<button id="reset">Reset</button></p>
 </body>
 </html>
