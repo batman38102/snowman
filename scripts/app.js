@@ -9,8 +9,8 @@ function init() {
             categoryText.textContent = 'Fruits'
             console.log(player.chosenCategory)
             console.log(generateWord())
-            // fruitsButton.disabled = true        // disable buttons after clicked
-            // vegetablesButton.disabled = true
+            fruitsButton.disabled = true        // disable buttons after clicked
+            vegetablesButton.disabled = true
         }
         else if (event.currentTarget.id === 'vegetables') {
 
@@ -18,8 +18,8 @@ function init() {
             categoryText.textContent = 'Vegetables'
             console.log(player.chosenCategory)
             console.log(generateWord())
-            // fruitsButton.disabled = true        // disable buttons after clicked
-            // vegetablesButton.disabled = true
+            fruitsButton.disabled = true        // disable buttons after clicked
+            vegetablesButton.disabled = true
             
         }
         
@@ -77,12 +77,20 @@ function init() {
                 playerInput = inputText.value.toLowerCase()
                 inputText.value = ''
 
-                for (let j = 0; j < cpu.randomWord.length; j++) {
-                    if (cpu.randomWord[j] === playerInput) {
-                        player.guessedLetters[j] = playerInput
-                        console.log(player.guessedLetters)
-                        displayDashes.textContent = player.guessedLetters.join(' ')
-                    } 
+                if (splitWord.includes(playerInput) === true) {
+                    for (let j = 0; j < cpu.randomWord.length; j++) {
+                        if (cpu.randomWord[j] === playerInput) {
+                            player.guessedLetters[j] = playerInput
+                            console.log(player.guessedLetters)
+                            
+                        } 
+                    }
+                    displayDashes.textContent = player.guessedLetters.join(' ')
+                }
+                else {
+                    console.log('Wrong Guess!')
+                    player.numberOfGuesses -= 1
+                    console.log('Number of guesses ' + player.numberOfGuesses)
                 }
                 
                 // if (splitWord.includes(playerInput) === true) {
@@ -120,17 +128,40 @@ function init() {
                 }
 
             }
+            checkWinner()
         }
 
     }
 
-    function declareWinner() {
-        if (splitWord.includes(player.guessedLetters)) {
+    function checkWinner() {
+        const allLettersMatch = splitWord.every(element => {
+            return player.guessedLetters.includes(element)
+        })
 
-            checkGuessButton.disabled = true;
-
+        if (allLettersMatch === true) {
+            checkGuessButton.disabled = true
+        }
+        else if (player.numberOfGuesses === 0) {
+            checkGuessButton.disabled = true
         }
     }
+
+    function resetAll(event) {
+        if (event.currentTarget.id === 'reset') {
+            
+            console.log('clicked')
+            player.chosenCategory = null
+            player.numberOfGuesses = 10
+            player.guessedLetters = []
+            cpu.randomWord = null
+            fruitsButton.disabled = false       // disable buttons after clicked
+            vegetablesButton.disabled = false
+            checkGuessButton.disabled = false
+            displayDashes.textContent = ""
+        }
+    }
+
+
 
     // Grabbing elements
     
@@ -139,6 +170,7 @@ function init() {
     categoryText = document.getElementById('category')
     inputText = document.getElementById('text')
     checkGuessButton = document.getElementById('check')
+    resetButton = document.getElementById('reset')
     displayDashes = document.getElementById('display-dashes') // used to display dashes or letters
 
     // Buttons
@@ -146,6 +178,7 @@ function init() {
     fruitsButton.addEventListener('click', chooseCategory)
     vegetablesButton.addEventListener('click', chooseCategory)
     checkGuessButton.addEventListener('click', compare)
+    resetButton.addEventListener('click', resetAll)
 
 
 
