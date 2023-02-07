@@ -8,6 +8,26 @@ body {
 
 }
 
+/* Fixed stuffed */
+.parent {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    /* border: 5px solid black; */
+}
+.game-info{
+    /* border: 2px solid red; */
+    width: 40%;
+
+}
+.snowman-display{
+    width:30%;
+    /* background-color: green; */
+    /* border: 7px solid green; */
+}
+
+/* End of Fixed stuffed */
+
 h1 {
 
     color: white;
@@ -104,14 +124,28 @@ h3 {
     border-radius: 5px;
     padding: 5px;
     width: 80px;
-    height: 30px;
+    height: 40px;
     margin-left: 5px;
     font-weight: bold;
 
 }
 
 #start-over {
-    margin-left: 5px;
+    margin-left: 10px;
     font-size: 20px;
-    font-weight: bold;
+}
+
+#number-of-guesses {
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+/* NEW DIV, Attempt1 */
+.main-content{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    padding-left: 20px;
+    /* border: 2px red solid; */
 }

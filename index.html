@@ -9,27 +9,42 @@
     <title>Snowman</title>
 </head>
 <body>
-    <h1>Snowman</h1>
-    <h2>Save the snowman by guessing correct letters!</h2>
 
-    <div class="container">
-        <p>Choose your category: </p>
-        <button id="fruits">Fruits</button>
-        <button id="vegetables">Vegetables</button>
+
+    <div class="parent">
+        
+        <div class="snowman-display">
+            
+        </div>
+
+        <div class="game-info">
+            <!-- New Div:D -->
+            <div class="main-content">
+                <h1>Snowman</h1>
+                <h2>Save the snowman by guessing correct letters!</h2>
+                <div class="container">
+                    <p>Choose your category: </p>
+                    <button id="fruits">Fruits</button>
+                    <button id="vegetables">Vegetables</button>
+                </div>
+                <div class="category">
+                    <p>Category chosen: <span id="category"></span></p>
+                </div>
+                <h3>Guess one letter at a time or try to guess the whole word at once!</h3>
+                <div class="text-guess">
+                <input type="text" id="text" placeholder="Care to guess?">
+                <button id="check">Guess?</button>
+                </div>
+                <p id="display-dashes"> </p>
+            </div>
+            <!-- End of new Div :D -->
+            
+            <div class="guess-section">
+                <p id="number-of-guesses">Number of Guesses left: <span id="guess-number"></span> </p>
+                <p id="start-over"> Start Over? <button id="reset">Reset</button></p>
+            </div>
+        
+        </div>
     </div>
-    <div class="category">
-        <p>Category chosen: <span id="category"></span></p>
-    </div>
-
-    <h3>Guess one letter at a time or try to guess the whole word at once!</h3>
-    <div class="text-guess">
-    <input type="text" id="text" placeholder="Care to guess?">
-    <button id="check">Guess?</button>
-    </div>
-
-    <p id="display-dashes"> </p>
-
-    <p>Number of Guesses left: </p>
-    <p id="start-over"> Start Over? <button id="reset">Reset</button></p>
-</body>
+    </body>
 </html>

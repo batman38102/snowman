@@ -64,6 +64,7 @@ function init() {
 
         }
         displayDashes.textContent = player.guessedLetters.join(' ')
+        guessNumber.textContent = player.numberOfGuesses
         return cpu.randomWord
     }
 
@@ -93,6 +94,7 @@ function init() {
                 else {
                     console.log('Wrong Guess!')
                     player.numberOfGuesses -= 1
+                    guessNumber.textContent = player.numberOfGuesses
                     console.log('Number of guesses ' + player.numberOfGuesses)
                 }
                 
@@ -143,6 +145,7 @@ function init() {
 
         if (allLettersMatch === true) {
             checkGuessButton.disabled = true
+            displayDashes.textContent = "You guessed all letters! You win!"
         }
         else if (player.numberOfGuesses === 0) {
             checkGuessButton.disabled = true
@@ -160,8 +163,9 @@ function init() {
             fruitsButton.disabled = false       // disable buttons after clicked
             vegetablesButton.disabled = false
             checkGuessButton.disabled = true
-            displayDashes.textContent = ""
-            categoryText.textContent = ""
+            displayDashes.textContent = ''
+            // displayWinner.textContent = ''
+            categoryText.textContent = ''
         }
     }
 
@@ -175,6 +179,8 @@ function init() {
     inputText = document.getElementById('text')
     checkGuessButton = document.getElementById('check')
     resetButton = document.getElementById('reset')
+    guessNumber = document.getElementById('guess-number')
+    // displayWinner = document.getElementById('display-winner')
     displayDashes = document.getElementById('display-dashes') // used to display dashes or letters
 
     // Buttons
