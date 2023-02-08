@@ -135,6 +135,9 @@ function init() {
                     playerGuessSplit = playerInput.split('')
                     player.guessedLetters = playerGuessSplit
                     displayDashes.textContent = player.guessedLetters.join(' ')
+                    ding.pause()
+                    ding.currentTime = 0.4
+                    ding.play()
                     
                 }
                 else {
@@ -143,6 +146,9 @@ function init() {
                     guessNumber.textContent = player.numberOfGuesses
                     drawingSnowMan.classList.add(`wrong-${player.numberOfGuesses}`)
                     console.log('Number of Guesses left ' + player.numberOfGuesses)
+                    buzzer.pause()
+                    buzzer.currentTime = 0.3
+                    buzzer.play()
                 }
 
             }
@@ -158,12 +164,14 @@ function init() {
 
         if (allLettersMatch === true) {
             checkGuessButton.disabled = true
+            inputText.disabled = true
             displayDashes.textContent = "You guessed all letters! You win!"
             ding.pause()
             tadaa.play()
         }
         else if (player.numberOfGuesses === 8) {
             checkGuessButton.disabled = true
+            inputText.disabled = true
             displayDashes.textContent = "Game Over! You lose!"
             buzzer.pause()
             sadTrombone.currentTime = 0.1
@@ -183,7 +191,6 @@ function init() {
             checkGuessButton.disabled = true
             inputText.disabled = true
             displayDashes.textContent = ''
-            // displayWinner.textContent = ''
             categoryText.textContent = ''
             guessNumber.textContent = ''
             drawingSnowMan.classList.remove('wrong-1','wrong-2','wrong-3','wrong-4','wrong-5','wrong-6','wrong-7','wrong-8')
@@ -201,7 +208,6 @@ function init() {
     checkGuessButton = document.getElementById('check')
     resetButton = document.getElementById('reset')
     guessNumber = document.getElementById('guess-number')
-    // displayWinner = document.getElementById('display-winner')
     drawingSnowMan = document.querySelector('.snowman-container') //  div and its class of snowman container for drawing snowman
     displayDashes = document.getElementById('display-dashes') // used to display dashes or letters
 
@@ -218,6 +224,8 @@ function init() {
     buzzer = new Audio('assets/audio/buzzer.mp3')
     sadTrombone = new Audio('assets/audio/sadtrombone.mp3')
     tadaa = new Audio('assets/audio/win31.mp3')
+
+    buzzer.volume = 0.3
 
     // keep button and text box disabled at first until one of the category is chosen
     
