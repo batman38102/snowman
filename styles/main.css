@@ -305,15 +305,16 @@ h3 {
 
 /*------ Make Snowman start appearing after wrong guess ---- */
 
-.snowman-container.wrong-1 .Hat_Top {
+
+.snowman-container.wrong-1 .Ellipse_Bottom {
     display: block;
 }
 
-.snowman-container.wrong-2 .Hat_Middle {
+.snowman-container.wrong-2 .Ellipse_Middle {
     display: block;
 }
 
-.snowman-container.wrong-3 .Hat_Bottom {
+.snowman-container.wrong-3 .Ellipse_Top {
     display: block;
 }
 
@@ -321,34 +322,34 @@ h3 {
     display: block;
 }
 
-.snowman-container.wrong-5 .Scarf_Right {
+.snowman-container.wrong-4 .Scarf_Right {
     display: block;
 }
 
-.snowman-container.wrong-6 .Scarf_Left {
-    display: block;
-}
-  
-.snowman-container.wrong-7 .Nose {
+.snowman-container.wrong-4 .Scarf_Left {
     display: block;
 }
 
-.snowman-container.wrong-8 .Eye_Right {
+.snowman-container.wrong-5 .Nose {
     display: block;
 }
 
-.snowman-container.wrong-9 .Eye_Left {
+.snowman-container.wrong-6 .Eye_Right {
     display: block;
 }
 
-.snowman-container.wrong-10 .Ellipse_Top {
+.snowman-container.wrong-7 .Eye_Left {
     display: block;
 }
 
-.snowman-container.wrong-11 .Ellipse_Middle {
+.snowman-container.wrong-8 .Hat_Top {
     display: block;
 }
 
-.snowman-container.wrong-12 .Ellipse_Bottom {
+.snowman-container.wrong-8 .Hat_Middle {
+    display: block;
+}
+
+.snowman-container.wrong-8 .Hat_Bottom {
     display: block;
 }

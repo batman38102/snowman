@@ -97,7 +97,7 @@ function init() {
                     player.numberOfGuesses += 1
                     guessNumber.textContent = player.numberOfGuesses
                     console.log('Number of guesses ' + player.numberOfGuesses)
-                    drawingSnowMan.classList.add(`wrong-${player.numberOfGuesses}`)
+                    drawingSnowMan.classList.add(`wrong-${player.numberOfGuesses}`) // draw parts of the snowman on wrong guess
 
                 }
                 
@@ -150,7 +150,7 @@ function init() {
             checkGuessButton.disabled = true
             displayDashes.textContent = "You guessed all letters! You win!"
         }
-        else if (player.numberOfGuesses === 12) {
+        else if (player.numberOfGuesses === 8) {
             checkGuessButton.disabled = true
             displayDashes.textContent = "Game Over! You lose!"
         }
@@ -160,7 +160,7 @@ function init() {
         if (event.currentTarget.id === 'reset') {
             
             player.chosenCategory = null
-            player.numberOfGuesses = 10
+            player.numberOfGuesses = 0
             player.guessedLetters = []
             cpu.randomWord = null
             fruitsButton.disabled = false       // disable buttons after clicked
@@ -169,6 +169,8 @@ function init() {
             displayDashes.textContent = ''
             // displayWinner.textContent = ''
             categoryText.textContent = ''
+            guessNumber.textContent = ''
+            drawingSnowMan.classList.remove('wrong-1','wrong-2','wrong-3','wrong-4','wrong-5','wrong-6','wrong-7','wrong-8')
         }
     }
 
@@ -184,7 +186,7 @@ function init() {
     resetButton = document.getElementById('reset')
     guessNumber = document.getElementById('guess-number')
     // displayWinner = document.getElementById('display-winner')
-    drawingSnowMan = document.querySelector('.snowman-container') // test code for drawing snowman
+    drawingSnowMan = document.querySelector('.snowman-container') //  div and its class of snowman container for drawing snowman
     displayDashes = document.getElementById('display-dashes') // used to display dashes or letters
 
     // Buttons
