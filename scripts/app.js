@@ -150,7 +150,7 @@ function init() {
             checkGuessButton.disabled = true
             displayDashes.textContent = "You guessed all letters! You win!"
         }
-        else if (player.numberOfGuesses === 0) {
+        else if (player.numberOfGuesses === 12) {
             checkGuessButton.disabled = true
             displayDashes.textContent = "Game Over! You lose!"
         }
