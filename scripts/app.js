@@ -38,7 +38,7 @@ function init() {
     
     const player = {
         chosenCategory: null,
-        numberOfGuesses: 10,
+        numberOfGuesses: 0,
         // guessedLetters: null
         guessedLetters: []
     }
@@ -76,6 +76,7 @@ function init() {
             // If User inputs only one letter at a time
             // if(inputText.value = '')return;
             
+            
             if (inputText.value.length === 1) {
 
                 playerInput = inputText.value.toLowerCase()
@@ -93,9 +94,11 @@ function init() {
                 }
                 else {
                     console.log('Wrong Guess!')
-                    player.numberOfGuesses -= 1
+                    player.numberOfGuesses += 1
                     guessNumber.textContent = player.numberOfGuesses
                     console.log('Number of guesses ' + player.numberOfGuesses)
+                    drawingSnowMan.classList.add(`wrong-${player.numberOfGuesses}`)
+
                 }
                 
                 // if (splitWord.includes(playerInput) === true) {
@@ -181,6 +184,7 @@ function init() {
     resetButton = document.getElementById('reset')
     guessNumber = document.getElementById('guess-number')
     // displayWinner = document.getElementById('display-winner')
+    drawingSnowMan = document.querySelector('.snowman-container') // test code for drawing snowman
     displayDashes = document.getElementById('display-dashes') // used to display dashes or letters
 
     // Buttons

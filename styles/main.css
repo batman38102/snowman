@@ -2,7 +2,8 @@
 
 body {
 
-    background: linear-gradient(#009FFD, #2A2A72);
+    /* background: linear-gradient(#009FFD, #2A2A72); */
+    background: linear-gradient(107.2deg, rgb(150, 15, 15) 10.6%, rgb(247, 0, 0) 91.1%);
     background-attachment: fixed;
     font-family: 'Mountains Of Christmas', sans-serif;
 
@@ -148,4 +149,206 @@ h3 {
     align-content: flex-start;
     padding-left: 20px;
     /* border: 2px red solid; */
+}
+
+/*-------------------------------- Snowman CSS --------------------------*/
+
+.snowman-container {
+    margin: auto;
+    width: 50%;
+    /* padding: 10px; */
+  }
+  
+  .Hat_Top {
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    left: 92px;
+    top: 17px;
+    width: 60px;
+    height: 46px;
+    z-index: 19;
+    display: none;
+  }
+  
+  .Hat_Middle {
+    background-color: rgb(255, 0, 0);
+    position: absolute;
+    left: 97px;
+    top: 60px;
+    width: 51px;
+    height: 14px;
+    z-index: 18;
+    display: none;
+  }
+  
+  .Hat_Bottom {
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    left: 79px;
+    top: 68px;
+    width: 88px;
+    height: 13px;
+    z-index: 17;
+    display: none;
+  }
+  
+  .Scarf_Right {
+    background-color: rgb(0, 191, 243);
+    position: absolute;
+    left: 124px;
+    top: 137px;
+    width: 24px;
+    height: 59px;
+    z-index: 16;
+    display: none;
+  }
+  
+  .Scarf_Center {
+    background-color: rgb(0, 191, 243);
+    position: absolute;
+    left: 90px;
+    top: 137px;
+    width: 65px;
+    height: 18px;
+    z-index: 15;
+    display: none;
+  }
+  
+  .Scarf_Left {
+    background-color: rgb(0, 191, 243);
+    position: absolute;
+    left: 101px;
+    top: 152px;
+    width: 18px;
+    height: 29px;
+    z-index: 14;
+    display: none;
+  }
+  
+  .Nose {
+    background-color: rgb(242, 101, 34);
+    position: absolute;
+    left: 117px;
+    top: 109px;
+    width: 10px;
+    height: 20px;
+    z-index: 13;
+    display: none;
+  }
+  
+  .Eye_Right {
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    left: 127px;
+    top: 95px;
+    width: 9px;
+    height: 8px;
+    z-index: 5;
+    display: none;
+  }
+  
+  .Eye_Left {
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    left: 107px;
+    top: 95px;
+    width: 9px;
+    height: 8px;
+    z-index: 4;
+    display: none;
+  }
+  
+  .Ellipse_Top {
+    border-width: 3.571px;
+    border-color: rgb(0, 0, 0);
+    border-style: solid;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    left: 81px;
+    top: 67px;
+    width: 74.858px;
+    height: 76.858px;
+    z-index: 3;
+    display: none;
+  }
+  
+  .Ellipse_Middle {
+    border-width: 3.571px;
+    border-color: rgb(0, 0, 0);
+    border-style: solid;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    left: 63px;
+    top: 142px;
+    width: 113.858px;
+    height: 106.858px;
+    z-index: 2;
+    display: none;
+  }
+  
+  .Ellipse_Bottom {
+    border-width: 3.571px;
+    border-color: rgb(0, 0, 0);
+    border-style: solid;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    left: 44px;
+    top: 223px;
+    width: 155.858px;
+    height: 140.858px;
+    z-index: 1;
+    display: none;
+  }
+
+/*------ Make Snowman start appearing after wrong guess ---- */
+
+.snowman-container.wrong-1 .Hat_Top {
+    display: block;
+}
+
+.snowman-container.wrong-2 .Hat_Middle {
+    display: block;
+}
+
+.snowman-container.wrong-3 .Hat_Bottom {
+    display: block;
+}
+
+.snowman-container.wrong-4 .Scarf_Center {
+    display: block;
+}
+
+.snowman-container.wrong-5 .Scarf_Right {
+    display: block;
+}
+
+.snowman-container.wrong-6 .Scarf_Left {
+    display: block;
+}
+  
+.snowman-container.wrong-7 .Nose {
+    display: block;
+}
+
+.snowman-container.wrong-8 .Eye_Right {
+    display: block;
+}
+
+.snowman-container.wrong-9 .Eye_Left {
+    display: block;
+}
+
+.snowman-container.wrong-10 .Ellipse_Top {
+    display: block;
+}
+
+.snowman-container.wrong-11 .Ellipse_Middle {
+    display: block;
+}
+
+.snowman-container.wrong-12 .Ellipse_Bottom {
+    display: block;
 }
