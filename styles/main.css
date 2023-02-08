@@ -154,8 +154,10 @@ h3 {
 /*-------------------------------- Snowman CSS --------------------------*/
 
 .snowman-container {
-    margin: auto;
+    /* margin: auto; */
     width: 50%;
+    margin-top: 100px;
+    position: relative;
     /* padding: 10px; */
   }
   

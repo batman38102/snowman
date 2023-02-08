@@ -12,6 +12,7 @@ function init() {
             fruitsButton.disabled = true        // disable buttons after clicked
             vegetablesButton.disabled = true
             checkGuessButton.disabled = false
+            inputText.disabled = false
         }
         else if (event.currentTarget.id === 'vegetables') {
 
@@ -22,6 +23,7 @@ function init() {
             fruitsButton.disabled = true        // disable buttons after clicked
             vegetablesButton.disabled = true
             checkGuessButton.disabled = false
+            inputText.disabled = false
             
         }
         
@@ -91,6 +93,9 @@ function init() {
                         } 
                     }
                     displayDashes.textContent = player.guessedLetters.join(' ')
+                    ding.pause()
+                    ding.currentTime = 0.4
+                    ding.play()
                 }
                 else {
                     console.log('Wrong Guess!')
@@ -98,6 +103,9 @@ function init() {
                     guessNumber.textContent = player.numberOfGuesses
                     console.log('Number of guesses ' + player.numberOfGuesses)
                     drawingSnowMan.classList.add(`wrong-${player.numberOfGuesses}`) // draw parts of the snowman on wrong guess
+                    buzzer.pause()
+                    buzzer.currentTime = 0.3
+                    buzzer.play()
 
                 }
                 
@@ -131,7 +139,9 @@ function init() {
                 }
                 else {
                     console.log('Wrong guess!')
-                    player.numberOfGuesses -= 1
+                    player.numberOfGuesses += 1
+                    guessNumber.textContent = player.numberOfGuesses
+                    drawingSnowMan.classList.add(`wrong-${player.numberOfGuesses}`)
                     console.log('Number of Guesses left ' + player.numberOfGuesses)
                 }
 
@@ -149,10 +159,15 @@ function init() {
         if (allLettersMatch === true) {
             checkGuessButton.disabled = true
             displayDashes.textContent = "You guessed all letters! You win!"
+            ding.pause()
+            tadaa.play()
         }
         else if (player.numberOfGuesses === 8) {
             checkGuessButton.disabled = true
             displayDashes.textContent = "Game Over! You lose!"
+            buzzer.pause()
+            sadTrombone.currentTime = 0.1
+            sadTrombone.play()
         }
     }
 
@@ -166,6 +181,7 @@ function init() {
             fruitsButton.disabled = false       // disable buttons after clicked
             vegetablesButton.disabled = false
             checkGuessButton.disabled = true
+            inputText.disabled = true
             displayDashes.textContent = ''
             // displayWinner.textContent = ''
             categoryText.textContent = ''
@@ -196,10 +212,17 @@ function init() {
     checkGuessButton.addEventListener('click', compare)
     resetButton.addEventListener('click', resetAll)
 
-    // keep button disabled at first until one of the category is chosen
+    // Audio
+
+    ding = new Audio('assets/audio/Ding.mp3')
+    buzzer = new Audio('assets/audio/buzzer.mp3')
+    sadTrombone = new Audio('assets/audio/sadtrombone.mp3')
+    tadaa = new Audio('assets/audio/win31.mp3')
+
+    // keep button and text box disabled at first until one of the category is chosen
     
     checkGuessButton.disabled = true
-
+    inputText.disabled = true
 
 }
 
