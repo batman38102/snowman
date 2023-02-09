@@ -192,7 +192,7 @@ function init() {
             inputText.disabled = true
             displayDashes.textContent = ''
             categoryText.textContent = ''
-            guessNumber.textContent = ''
+            guessNumber.textContent = '0'
             drawingSnowMan.classList.remove('wrong-1','wrong-2','wrong-3','wrong-4','wrong-5','wrong-6','wrong-7','wrong-8')
         }
     }
